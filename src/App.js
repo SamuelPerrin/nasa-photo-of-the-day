@@ -3,6 +3,7 @@ import "./App.css";
 import Header from './Header'
 import Image from './Image'
 import axios from 'axios'
+import styled from 'styled-components'
 
 export default function App() {
   const [imageData, setImageData] = useState([]);
@@ -20,11 +21,19 @@ export default function App() {
   // console.log('imageData',imageData);
 
   return (
-    <div className="App">
+    <StyledApp className="App">
       <Header date={imageData.date} />
       <Image url={imageData.url} hdurl={imageData.hdurl} title={imageData.title} explanation={imageData.explanation} />
-    </div>
+    </StyledApp>
   );
 }
-// 
-// 
+
+const StyledApp = styled.div`
+  background-color: ${pr => pr.theme.black};
+  color: ${pr => pr.theme.white};
+
+  a {
+    color: ${pr => pr.theme.primaryColor};
+    text-decoration: none;
+  }
+`
